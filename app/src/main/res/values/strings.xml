@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MusicVideoAlarm</string>
+    <string-array name="genres">
+        <item>Classical</item>
+        <item>Country</item>
+        <item>Edm</item>
+        <item>Pop</item>
+        <item>Rap</item>
+        <item>Reggae</item>
+        <item>Rock</item>
+
+
+
+
+    </string-array>
+</resources>

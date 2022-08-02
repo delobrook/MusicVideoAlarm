@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.musicvideoalarm">
+    package="com.delanotracey.musicvideoalarm">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/alarmicon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicVideoAlarm">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3967231355056077~8025576821"/>
         <activity
-            android:name=".MainActivity2"
+            android:name="musicvideoalarm.example.musicvideoalarm.MainActivity2"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="musicvideoalarm.example.musicvideoalarm.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name="musicvideoalarm.example.musicvideoalarm.AlarmReceiver" />
     </application>
 
 </manifest>

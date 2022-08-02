@@ -1,16 +1,14 @@
-package com.example.musicvideoalarm;
+package musicvideoalarm.example.musicvideoalarm;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
-import com.example.musicvideoalarm.databinding.ActivityMain2Binding;
-import com.example.musicvideoalarm.databinding.ActivityMainBinding;
-import com.google.android.youtube.player.YouTubeApiServiceUtil;
+import com.delanotracey.musicvideoalarm.R;
+import com.delanotracey.musicvideoalarm.databinding.ActivityMain2Binding;
+import com.delanotracey.musicvideoalarm.databinding.ActivityMainBinding;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -25,7 +23,7 @@ public class MainActivity2 extends YouTubeBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMain2Binding= DataBindingUtil.setContentView(this,R.layout.activity_main2);
+        activityMain2Binding= DataBindingUtil.setContentView(this, R.layout.activity_main2);
 
         youTubePlayerView=findViewById(R.id.youtubeview);
         mOnInitializedListener= new YouTubePlayer.OnInitializedListener() {

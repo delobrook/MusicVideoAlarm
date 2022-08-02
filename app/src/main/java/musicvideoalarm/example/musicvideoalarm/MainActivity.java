@@ -1,19 +1,13 @@
-package com.example.musicvideoalarm;
+package musicvideoalarm.example.musicvideoalarm;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
-import android.app.Activity;
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -21,24 +15,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.musicvideoalarm.databinding.ActivityMainBinding;
-import com.google.android.material.timepicker.MaterialTimePicker;
-import com.google.android.material.timepicker.TimeFormat;
-import com.google.android.youtube.player.YouTubePlayer;
-
-import org.w3c.dom.Text;
+import com.delanotracey.musicvideoalarm.R;
+import com.delanotracey.musicvideoalarm.databinding.ActivityMainBinding;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,12 +44,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMainBinding= DataBindingUtil.setContentView(this,R.layout.activity_main);
+        activityMainBinding= DataBindingUtil.setContentView(this, R.layout.activity_main);
         activityMainBinding.setCurrentTime(setCurrentTime());
         Date d= new Date();
         activityMainBinding.calendarView.setDate(System.currentTimeMillis());
         activityMainBinding.timePicker.setHour(d.getHours());
         activityMainBinding.timePicker.setMinute(d.getMinutes());
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
+
+            }
+        });
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        activityMainBinding.adView.loadAd(adRequest);
 
         createNotificationChannel();
 

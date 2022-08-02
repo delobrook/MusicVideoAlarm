@@ -1,4 +1,4 @@
-package com.example.musicvideoalarm;
+package musicvideoalarm.example.musicvideoalarm;
 
 import android.content.Context;
 
